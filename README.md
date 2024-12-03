@@ -2,9 +2,9 @@
 
 ## Overview
 
-This Web Application is designed for managing dancing school with all of its teachers, students and events. 
+TThis web application is designed to streamline the management of a dance school, including its teachers, students, and events.
 My dancing teacher is doing just fine with the excel sheets, but I would like to get more fammiliar with the cloud, so here we go.
-My goal is to reduce the cost as much as possible, so I will try to stay in the free tier.
+My aim is to minimize costs by leveraging free-tier services wherever possible.
 
 ## Technology stack
 - FE: Angular V18
