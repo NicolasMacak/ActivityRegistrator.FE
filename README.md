@@ -1,27 +1,24 @@
-# Registrator
+# Courses registrator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Overview
 
-## Development server
+This Web Application is designed for managing dancing school with all of its teachers, students and events. 
+My dancing teacher is doing just fine with the excel sheets, but I would like to get more fammiliar with the cloud, so here we go.
+My goal is to reduce the cost as much as possible, so I will try to stay in the free tier.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technology stack
+- FE: Angular V18
+- Cloud: Microsoft Azure
+- Database: Azure tables
+- Google Calendar API
+- Message-Broker: MQRabbit
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Planned vs Implemented features
+🔨 Designing objects and their relations (In progress) <br>
+:large_blue_diamond: Adding people (Backlog) <br>
+:large_blue_diamond: Creating events (Backlog) <br>
+:large_blue_diamond: Access management: Identity, Roles (Backlog) <br>
+:large_blue_diamond: Multi-language (Backlog) <br>
+:large_blue_diamond: Multi-tenant (Backlog) <br>
+:large_blue_diamond: Export/Import actions with Google Calendar (Backlog) <br>
+:large_blue_diamond: Mail newsletter (Message-Broker) (Backlog) <br>
