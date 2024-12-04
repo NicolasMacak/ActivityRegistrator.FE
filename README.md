@@ -15,10 +15,10 @@ My aim is to minimize costs by leveraging free-tier services wherever possible.
 
 ## Planned vs Implemented features
 🔨 Designing objects and their relations (In progress) <br>
-🔨 Adding people (Backlog) <br>
+🔨 Adding people (In progress) <br>
 :large_blue_diamond: Creating events (Backlog) <br>
-🔨 Access management: Identity, Roles (Backlog) <br>
+🔨 Access management: Identity, Roles (In progress) <br>
 :large_blue_diamond: Multi-language (Backlog) <br>
-🔨 Multi-tenant (Backlog) <br>
+🔨 Multi-tenant (In progress) <br>
 :large_blue_diamond: Export/Import actions with Google Calendar (Backlog) <br>
 :large_blue_diamond: Mail newsletter (Message-Broker) (Backlog) <br>
