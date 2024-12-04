@@ -9,7 +9,7 @@ My aim is to minimize costs by leveraging free-tier services wherever possible.
 ## Technology stack
 - FE: Angular V18
 - Cloud: Microsoft Azure
-- Database: Azure tables
+- Database: Azure table storage
 - Google Calendar API
 - Message-Broker: MQRabbit
 
