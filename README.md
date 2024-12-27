@@ -13,3 +13,6 @@ My aim is to minimize costs by leveraging free-tier services wherever possible.
 - Database: Azure table storage
 - Google Calendar API
 - Message-Broker: MQRabbit
+
+## Implementation progress
+[ActivityRegistrator.FE project](https://github.com/users/NicolasMacak/projects/4)
