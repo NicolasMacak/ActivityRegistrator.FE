@@ -9,10 +9,8 @@ My aim is to minimize costs by leveraging free-tier services wherever possible.
 
 ## Technology stack
 - FE: Angular V18
-- Cloud: Microsoft Azure
+- Hosting: Microsoft Azure
 - Database: Azure table storage
-- Google Calendar API
-- Message-Broker: MQRabbit
 
 ## Implementation progress
 [ActivityRegistrator.FE project](https://github.com/users/NicolasMacak/projects/4)
