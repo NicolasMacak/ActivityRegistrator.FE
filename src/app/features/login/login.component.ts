@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { AuthService } from "./auth.service";
+import { MsalService } from "@azure/msal-angular";
 
 @Component({
     selector: 'login',
@@ -9,14 +10,25 @@ import { AuthService } from "./auth.service";
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'
 })
-export class LoginComponent{
-    constructor(private authService: AuthService) {}
+export class LoginComponent implements OnInit {
+    constructor(private authService: AuthService, private msalService: MsalService) { }
 
     email: string = 'log';
     password: string = 'pass';
 
-    loginByGoole(){
-        this.authService.login("babka", "dedko");
+    ngOnInit(): void { // Has to be initialized before request azure B2C
+        this.msalService.initialize().subscribe({
+            next: (result) => {
+                console.log('MSAL initialized successfully:', result);
+            },
+            error: (error) => {
+                console.error('Error initializing MSAL:', error);
+            }
+        });
+    }
+
+    loginB2C() {
+        this.msalService.loginRedirect();
     }
 
     title = 'Login'
