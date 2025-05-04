@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
     email: string = 'log';
     password: string = 'pass';
 
-    ngOnInit(): void { // Has to be initialized before request azure B2C
-        this.msalService.initialize().subscribe({
+    ngOnInit(): void {
+        this.msalService.initialize().subscribe({ // Has to be initialized before request azure B2C
             next: (result) => {
                 console.log('MSAL initialized successfully:', result);
             },
@@ -29,6 +29,19 @@ export class LoginComponent implements OnInit {
 
     loginB2C() {
         this.msalService.loginRedirect();
+    }
+
+    acquireToken() {
+        this.msalService.acquireTokenSilent({ scopes: ["openid", "profile"] }).subscribe({
+            next: (result) => {
+                console.log("Access Token:", result.accessToken); // This is the token you need
+            },
+            error: (error) => {
+                console.error("Error acquiring token silently:", error);
+                // Fallback to interactive login if needed
+                this.msalService.loginRedirect({ scopes: ["openid", "profile"] });
+            }
+        });
     }
 
     title = 'Login'
