@@ -17,9 +17,20 @@ export class LoginComponent implements OnInit {
     password: string = 'pass';
 
     ngOnInit(): void {
-        this.msalService.initialize().subscribe({ // Has to be initialized before request azure B2C
-            next: (result) => {
-                console.log('MSAL initialized successfully:', result);
+        this.msalService.initialize().subscribe({
+            next: () => {
+                // Handle the redirect response
+                this.msalService.instance.handleRedirectPromise().then((response) => {
+                    if (response && response.account) {
+                        // Set the active account after login
+                        this.msalService.instance.setActiveAccount(response.account);
+                        console.log('Login successful, active account set:', response.account);
+                    } else {
+                        console.warn('No account found after redirect.');
+                    }
+                }).catch((error) => {
+                    console.error('Error handling redirect:', error);
+                });
             },
             error: (error) => {
                 console.error('Error initializing MSAL:', error);
