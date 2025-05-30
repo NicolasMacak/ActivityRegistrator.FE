@@ -39,7 +39,12 @@ export class LoginComponent implements OnInit {
     }
 
     loginB2C() {
-        this.msalService.loginRedirect();
+        this.msalService.loginRedirect({
+            scopes: [ // might be wrong
+                "https://activityRegistrator.onmicrosoft.com/web-app-api/api.read",
+                "https://activityRegistrator.onmicrosoft.com/web-app-api/api.write",
+            ] // Add your API scope here
+        });
     }
 
     acquireToken() {
