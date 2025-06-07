@@ -39,23 +39,41 @@ export class LoginComponent implements OnInit {
     }
 
     loginB2C() {
-        this.msalService.loginRedirect({
-            scopes: [ // might be wrong
-                "https://activityRegistrator.onmicrosoft.com/web-app-api/api.read",
-                "https://activityRegistrator.onmicrosoft.com/web-app-api/api.write",
-            ] // Add your API scope here
-        });
+          this.msalService.loginRedirect({
+    scopes: [
+      "https://activityRegistrator.onmicrosoft.com/web-app-api/api.read",
+      "https://activityRegistrator.onmicrosoft.com/web-app-api/api.write"
+    ]
+  });
     }
 
     acquireToken() {
-        this.msalService.acquireTokenSilent({ scopes: ["openid", "profile"] }).subscribe({
-            next: (result) => {
-                console.log("Access Token:", result.accessToken); // This is the token you need
+        const account = this.msalService.instance.getActiveAccount();
+
+        if (!account) {
+            console.error("❌ No active account found. Ensure user is logged in.");
+            return;
+        }
+
+        this.msalService.acquireTokenSilent({
+            account: account,
+            scopes: [
+                "https://activityRegistrator.onmicrosoft.com/web-app-api/api.read",
+                "https://activityRegistrator.onmicrosoft.com/web-app-api/api.write"
+            ]
+            }).subscribe({
+            next: result => {
+                console.log("✅ Access Token Acquired:", result.accessToken);
+                // Use in Authorization header: Bearer <token>
             },
-            error: (error) => {
-                console.error("Error acquiring token silently:", error);
-                // Fallback to interactive login if needed
-                this.msalService.loginRedirect({ scopes: ["openid", "profile"] });
+            error: error => {
+                console.error("❌ Token acquisition failed", error);
+                this.msalService.acquireTokenRedirect({
+                scopes: [
+                    "https://activityRegistrator.onmicrosoft.com/web-app-api/api.read",
+                    "https://activityRegistrator.onmicrosoft.com/web-app-api/api.write"
+                ]
+                });
             }
         });
     }
